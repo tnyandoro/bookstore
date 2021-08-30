@@ -19,11 +19,9 @@ function Books() {
 
   return (
     <div>
-      <form>
-        <input ref={title} type="text" placeholder="Title" />
-        <input ref={author} type="text" placeholder="Author " />
-        <button type="submit" onClick={submitBookToStore}>Add Book</button>
-      </form>
+      <input ref={title} type="text" placeholder="Title" />
+      <input ref={author} type="text" placeholder="Author " />
+      <button type="submit" onClick={submitBookToStore}>Add Book</button>
     </div>
   );
 }

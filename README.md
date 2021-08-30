@@ -4,9 +4,9 @@
 
 > "Math magicians" is a website that calculates mathematics.
 
-![ScreenShot](https://user-images.githubusercontent.com/30318155/130863328-a2fb965a-486d-40f3-9b65-ed0dbd76b44c.png)
+![ScreenShot]
 
-"Math magicians" is a website for all  mathematics fanatics. It allows users to make simple calculations.
+"Books" is a website for all  readers.
 
 ## Built With
 
@@ -17,7 +17,7 @@
 
 ## Live Demo
 
-[Live Demo Link](https://tnyandoro.github.io/math-magicians/)
+[Live Demo Link](https://tnyandoro.github/)
 
 ## Getting Started
 
@@ -30,7 +30,7 @@ To get a local copy up and running follow these simple example steps.
 ### Setup
 
 ```bash
-git clone https://github.com/tnyandoro/math-magicians
+git clone https://github.com/tnyandoro/
 cd ./math-magicians
 ```
 
@@ -70,7 +70,7 @@ npm test
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/tnyandoro/math-magicians/issues/).
+Feel free to check the [issues page](https://github.com/tnyandoro/books/issues/).
 
 ## Show your support
 

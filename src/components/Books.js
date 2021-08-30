@@ -1,6 +1,7 @@
-import React, { useDispatch, useRef } from 'react-redux';
+import React, { useRef } from 'react';
+import { useDispatch } from 'react-redux';
 import uuid from 'react-uuid';
-import { addBook, removeBook } from './redux/books/books';
+import { addBook, removeBook } from '../redux/books/books';
 
 function Books() {
   const dispatch = useDispatch();
@@ -9,12 +10,7 @@ function Books() {
   const author = useRef(null);
 
   const submitBookToStore = () => {
-    const newBook = {
-      id,
-      title,
-      author,
-    };
-    dispatch(addBook(newBook));
+    dispatch(addBook(title.current.value, author.current.value, id));
   };
 
   return (
@@ -22,6 +18,7 @@ function Books() {
       <input ref={title} type="text" placeholder="Title" />
       <input ref={author} type="text" placeholder="Author " />
       <button type="submit" onClick={submitBookToStore}>Add Book</button>
+      <button type="submit" onClick={() => dispatch(removeBook(id))}>Remove Book</button>
     </div>
   );
 }

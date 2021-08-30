@@ -1,11 +1,9 @@
-import React from 'react'
+import React from 'react';
 
 function books() {
   return (
-    <div>
-      
-    </div>
-  )
+    <div />
+  );
 }
 
-export default books
+export default books;

@@ -8,6 +8,10 @@ const ADD_BOOK_FAILURE = 'bookStore/books/ADD_BOOK_FAILURE';
 
 const initialState = [];
 
+const addBookRequest = () => ({
+  type: ADD_BOOK_REQUEST,
+});
+
 export const addBook = (payload) => ({
   type: ADD_BOOK,
   payload,

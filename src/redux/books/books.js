@@ -12,7 +12,7 @@ const addBookRequest = () => ({
   type: ADD_BOOK_REQUEST,
 });
 
-export const addBook = (payload) => ({
+export const addBookSuccess = (payload) => ({
   type: ADD_BOOK,
   payload,
 });

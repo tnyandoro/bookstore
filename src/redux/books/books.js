@@ -41,6 +41,10 @@ export const postBookRequest = ({
       author,
       category,
     },
+  }).then((response) => {
+    dispatch(addBookSuccess(response.data));
+  }).catch((error) => {
+    dispatch(addbookFailure(error));
   });
 };
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import { addBook, removeBook, allBooks } from '../redux/books/books';
+import { postBookRequest, removeBook, allBooks } from '../redux/books/books';
 import Book from './Book';
 
 function Books() {
@@ -20,7 +20,7 @@ function Books() {
 
   const submitBookToStore = (e) => {
     e.preventDefault();
-    dispatch(addBook({ title, author, id: uuidv4() }));
+    dispatch(postBookRequest({ title, author, id: uuidv4() }));
     addTitle('');
     addAuthor('');
   };

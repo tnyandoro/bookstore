@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const ADD_BOOK = 'bookStore/books/ADD_BOOK';
+// const ADD_BOOK = 'bookStore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
 const ADD_BOOK_REQUEST = 'bookStore/books/ADD_BOOK_REQUEST';
 const ADD_BOOK_SUCCESS = 'bookStore/books/ADD_BOOK_SUCCESS';
@@ -32,15 +32,11 @@ export const postBookRequest = ({
   title, author, category, id,
 }) => (dispatch) => {
   dispatch(addBookRequest());
-  axios({
-    method: 'post',
-    url: `${BASE_URL}/0zliRxTHnwjiUZLnAPLz/books`,
-    data: {
-      item_id: id,
-      title,
-      author,
-      category,
-    },
+  axios.post(`${BASE_URL}/0zliRxTHnwjiUZLnAPLz/books`, {
+    item_id: id,
+    title,
+    author,
+    category,
   }).then((response) => {
     dispatch(addBookSuccess(response.data));
   }).catch((error) => {
@@ -50,7 +46,7 @@ export const postBookRequest = ({
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_BOOK:
+    case ADD_BOOK_SUCCESS:
       return [...state, action.payload];
     case REMOVE_BOOK:
       return state.filter((book) => book.id !== action.payload.id);

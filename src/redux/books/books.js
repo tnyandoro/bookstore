@@ -5,6 +5,7 @@ const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
 const ADD_BOOK_REQUEST = 'bookStore/books/ADD_BOOK_REQUEST';
 const ADD_BOOK_SUCCESS = 'bookStore/books/ADD_BOOK_SUCCESS';
 const ADD_BOOK_FAILURE = 'bookStore/books/ADD_BOOK_FAILURE';
+const BASE_URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps';
 
 const initialState = [];
 
@@ -12,8 +13,13 @@ const addBookRequest = () => ({
   type: ADD_BOOK_REQUEST,
 });
 
-export const addBookSuccess = (payload) => ({
-  type: ADD_BOOK,
+const addBookSuccess = (payload) => ({
+  type: ADD_BOOK_SUCCESS,
+  payload,
+});
+
+const addbookFailure = (payload) => ({
+  type: ADD_BOOK_FAILURE,
   payload,
 });
 
@@ -22,12 +28,20 @@ export const removeBook = (payload) => ({
   payload,
 });
 
-export const AddBookRequest = ({
-  title, author, catergory, id,
+export const postBookRequest = ({
+  title, author, category, id,
 }) => (dispatch) => {
-  dispatch(addBook({
-    title, author, catergory, id,
-  }));
+  dispatch(addBookRequest());
+  axios({
+    method: 'post',
+    url: `${BASE_URL}/0zliRxTHnwjiUZLnAPLz/books`,
+    data: {
+      item_id: id,
+      title,
+      author,
+      category,
+    },
+  });
 };
 
 const reducer = (state = initialState, action) => {

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { addBook, removeBook, allBooks } from '../redux/books/books';
+import Book from './Book';
 
 function Books() {
   const dispatch = useDispatch();
@@ -34,10 +35,13 @@ function Books() {
       <div>
         <ul>
           { books && books.map((book) => (
-            <li key={book.id}>
-              <span>{book.title}</span>
-              <button id={book.id} type="button" onClick={removeBookFromStore}>Delete</button>
-            </li>
+            <Book
+              title={book.title}
+              author={book.author}
+              id={book.id}
+              key={book.id}
+              removeBookFromStore={removeBookFromStore}
+            />
           ))}
         </ul>
       </div>

@@ -20,8 +20,8 @@ function Books() {
   const submitBookToStore = (e) => {
     e.preventDefault();
     dispatch(addBook({ title, author, id: uuidv4() }));
-    setTitle('');
-    setAuthor('');
+    addTitle('');
+    addAuthor('');
   };
 
   const removeBookFromStore = (e) => {
@@ -30,7 +30,7 @@ function Books() {
 
   return (
     <div>
-      <h2>Book List</h2>
+      <h4>ADD A NEW BOOK</h4>
       <div>
         <ul>
           { books && books.map((book) => (
@@ -43,8 +43,8 @@ function Books() {
       </div>
       <div>
         <form>
-          <input type="text" placeholder="Title" onChange={setBookTitle} />
-          <input type="text" placeholder="Author" onChange={setBookAuthor} />
+          <input type="text" placeholder="Title" onChange={addBookTitle} />
+          <input type="text" placeholder="Author" onChange={addBookAuthor} />
           <button type="submit" onClick={submitBookToStore}>Add Book</button>
         </form>
       </div>

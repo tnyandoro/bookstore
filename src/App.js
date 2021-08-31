@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,11 +6,13 @@ import {
 } from 'react-router-dom';
 import Books from './components/Books';
 import Catergories from './components/Catergories';
+import './App.css';
 
 function App() {
   return (
-    <Router>
-      <div>
+    <div>
+      <h1>BookStore App</h1>
+      <Router>
         <nav>
           <ul>
             <li>
@@ -22,9 +23,6 @@ function App() {
             </li>
           </ul>
         </nav>
-
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
         <Switch>
           <Route path="/books">
             <Books />
@@ -33,8 +31,8 @@ function App() {
             <Catergories />
           </Route>
         </Switch>
-      </div>
-    </Router>
+      </Router>
+    </div>
   );
 }
 

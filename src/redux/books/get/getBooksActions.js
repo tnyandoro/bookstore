@@ -1,5 +1,3 @@
-import axios from 'axios';
-import bookStoreUrl from '../../utils';
 import getBooksTypes from './getBooksTypes';
 
 const getBooksActions = (() => {
@@ -17,19 +15,11 @@ const getBooksActions = (() => {
     payload: error,
   });
 
-  const fetchBooks = () => (dispatch) => {
-    dispatch(getBooksRequest());
-    axios
-      .get(bookStoreUrl)
-      .then((response) => {
-        dispatch(getBooksSuccess(response.data));
-      })
-      .catch((error) => {
-        dispatch(getBooksFailure(error));
-      });
+  return {
+    getBooksRequest,
+    getBooksSuccess,
+    getBooksFailure,
   };
-
-  return fetchBooks;
 })();
 
 export default getBooksActions;

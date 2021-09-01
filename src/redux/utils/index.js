@@ -3,7 +3,7 @@ const bookStoreUrl = (() => {
   const appID = '8BeC6hhtibzqOPHKrDmH';
   const url = `${BASE_URL}/${appID}/books`;
 
-  return url;
+  return { url };
 })();
 
 export default bookStoreUrl;

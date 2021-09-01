@@ -3,10 +3,10 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
-import booksReducer from './books/books';
+import addBookReducer from './books/post/bookReducer';
 
 const reducer = combineReducers({
-  booksReducer,
+  addBookReducer,
   // additional reducers could be added here
 });
 

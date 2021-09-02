@@ -10,6 +10,7 @@ function Books() {
   const dispatch = useDispatch();
   const booksData = useSelector(({ booksData }) => booksData.books);
   const [title, setTitle] = useState(' ');
+  const [author, setAuthor] = useState(' ');
   const [category, setCategory] = useState(' ');
   const [errorMessage, setErrorMessage] = useState(' ');
 
@@ -27,10 +28,12 @@ function Books() {
         postBookRequest({
           id: uuidv4(),
           title,
+          author,
           category,
         }),
       );
       setTitle('');
+      setAuthor('');
       setCategory('');
     } else {
       setErrorMessage('Please fill all fields');
@@ -50,6 +53,7 @@ function Books() {
               key={book.item_id}
               id={book.item_id}
               title={book.title}
+              author={book.author}
               category={book.category}
             />
           ))
@@ -66,6 +70,12 @@ function Books() {
               value={title}
               placeholder="Title"
               onChange={(e) => setTitle(e.target.value)}
+            />
+            <input
+              type="text"
+              value={author}
+              placeholder="Title"
+              onChange={(e) => setAuthor(e.target.value)}
             />
           </div>
           <div>

@@ -10,12 +10,13 @@ const initialState = {
 };
 
 export const postBookRequest = ({
-  title, category, id,
+  title, author, category, id,
 }) => (dispatch) => {
   dispatch(bookActions.addBookRequest());
   axios.post(`${BASE_URL}/${appID}/books`, {
     item_id: id,
     title,
+    author,
     category,
   }).then((response) => {
     dispatch(bookActions.addBookSuccess(response.data));

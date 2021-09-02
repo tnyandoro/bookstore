@@ -22,6 +22,7 @@ export const fetchBooks = () => async (dispatch) => {
         return {
           item_id: propertyName,
           title: incomingbook.title,
+          author: incomingbook.author,
           category: incomingbook.category,
         };
       });

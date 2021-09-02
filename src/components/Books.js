@@ -23,7 +23,7 @@ function Books() {
   const submitBookToStore = (e) => {
     e.preventDefault();
 
-    if (title && category) {
+    if (title && author && category) {
       dispatch(
         postBookRequest({
           id: uuidv4(),

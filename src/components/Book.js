@@ -27,6 +27,7 @@ function Book({
         {' '}
         <br />
         Book Category:
+        {' '}
         {category}
         {' '}
         <br />

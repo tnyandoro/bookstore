@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import deleteBook from '../redux/books/delete/deleteBookReducer';
 
 function Book({
-  title, author, category, id,
+  title, category, id,
 }) {
   const [message, setMessage] = useState(' ');
 
@@ -21,10 +21,7 @@ function Book({
         {title}
         {' '}
         <br />
-        Book Author:
-        {' '}
-        {author}
-        {' '}
+        Book Author: Not Set
         <br />
         Book Category:
         {' '}
@@ -41,7 +38,6 @@ function Book({
 
 Book.propTypes = {
   title: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
 };

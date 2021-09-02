@@ -71,12 +71,6 @@ function Books() {
               placeholder="Title"
               onChange={(e) => setTitle(e.target.value)}
             />
-            <input
-              type="text"
-              value={author}
-              placeholder="Author"
-              onChange={(e) => setAuthor(e.target.value)}
-            />
           </div>
           <div>
             <select

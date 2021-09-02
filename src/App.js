@@ -11,7 +11,7 @@ import './App.css';
 function App() {
   return (
     <div>
-      <h1>BookStore App</h1>
+      <h1>Bookstore CMS</h1>
       <Router>
         <nav>
           <ul>

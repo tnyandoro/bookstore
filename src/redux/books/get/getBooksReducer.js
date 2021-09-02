@@ -1,6 +1,10 @@
 import axios from 'axios';
 import getBooksTypes from './getBooksTypes';
-import getBooksActions from './getBooksActions';
+import {
+  getBooksRequest,
+  getBooksSuccess,
+  getBooksFailure,
+} from './getBooksActions';
 
 const BASE_URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps';
 const appID = '8BeC6hhtibzqOPHKrDmH';
@@ -11,14 +15,21 @@ const initialState = {
   error: '',
 };
 
-export const fetchBooks = () => (dispatch) => {
-  dispatch(getBooksActions.getBooksRequest());
-  axios.get(`${BASE_URL}/${appID}/books`)
+export const fetchBooks = () => async (dispatch) => {
+  dispatch(getBooksRequest());
+  axios.get(`${BASE_URL}/${appID}/books`, { mode: 'cors' })
     .then((response) => {
-      dispatch(getBooksActions.getBooksSuccess(response.data));
-    })
-    .catch((error) => {
-      dispatch(getBooksActions.getBooksFailure(error));
+      const books = Object.keys(response.data).map((propertyName) => {
+        const incomingbook = response.data[propertyName][0];
+        return {
+          item_id: propertyName,
+          title: incomingbook.title,
+          category: incomingbook.category,
+        };
+      });
+      dispatch(getBooksSuccess(books));
+    }).catch((error) => {
+      dispatch(getBooksFailure(error));
     });
 };
 

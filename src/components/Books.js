@@ -4,29 +4,27 @@ import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { postBookRequest } from '../redux/books/post/bookReducer';
 import { fetchBooks } from '../redux/books/get/getBooksReducer';
-// import Book from './Book';
-
-// const mapState = ({ books }) => ({
-//   books,
-// });
+import Book from './Book';
 
 function Books() {
   const dispatch = useDispatch();
-  const books = useSelector(({ books }) => books.books);
+  const booksData = useSelector(({ booksData }) => booksData.books);
   const [title, setTitle] = useState(' ');
   const [author, setAuthor] = useState(' ');
   const [category, setCategory] = useState(' ');
 
   useEffect(() => {
-    fetchBooks();
+    (async () => {
+      await dispatch(fetchBooks());
+    })();
   }, []);
 
   const submitBookToStore = (e) => {
     e.preventDefault();
     dispatch(postBookRequest({
+      id: uuidv4(),
       title,
       author,
-      id: uuidv4(),
       category,
     }));
     setTitle('');
@@ -40,20 +38,17 @@ function Books() {
 
   return (
     <div>
-      <h4>ADD A NEW BOOK</h4>
+      <h4>Bookstore CMS</h4>
       <div>
         <ul>
-          {/* { books && books.map((book) => (
-            <Book
-              title={book.title}
-              author={book.author}
-              id={book.id}
-              key={book.id}
-              // removeBookFromStore={removeBookFromStore}
-            />
-          ))} */}
-
-          {JSON.stringify(books)}
+          {booksData.length < 1 ? <li>Loading....</li> : booksData
+            && booksData.map((book) => (
+              <Book
+                key={book.id}
+                title={book.title}
+                author={book.author}
+              />
+            ))}
         </ul>
       </div>
       <div>
@@ -63,9 +58,9 @@ function Books() {
           <div>
             <label htmlFor="category">Book Catergory: </label>
             <select name="category" id="category" onChange={(e) => setCategory(e.target.value)}>
-              <option value="">Catergory One</option>
-              <option value="">Catergory Two</option>
-              <option value="">Catergory Three</option>
+              <option value="">Action</option>
+              <option value="">Science Fiction</option>
+              <option value="">Politics</option>
             </select>
           </div>
           <button type="submit" onClick={submitBookToStore}>Add Book</button>

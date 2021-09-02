@@ -10,8 +10,8 @@ function Books() {
   const dispatch = useDispatch();
   const booksData = useSelector(({ booksData }) => booksData.books);
   const [title, setTitle] = useState(' ');
-  const [author, setAuthor] = useState(' ');
   const [category, setCategory] = useState(' ');
+  const [errorMessage, setErrorMessage] = useState(' ');
 
   useEffect(() => {
     (async () => {
@@ -21,49 +21,69 @@ function Books() {
 
   const submitBookToStore = (e) => {
     e.preventDefault();
-    dispatch(postBookRequest({
-      id: uuidv4(),
-      title,
-      author,
-      category,
-    }));
-    setTitle('');
-    setAuthor('');
-    setCategory('');
-  };
 
-  // const removeBookFromStore = (e) => {
-  //   dispatch(removeBook({ id: e.target.id }));
-  // };
+    if (title && category) {
+      dispatch(
+        postBookRequest({
+          id: uuidv4(),
+          title,
+          category,
+        }),
+      );
+      setTitle('');
+      setCategory('');
+    } else {
+      setErrorMessage('Please fill all fields');
+    }
+  };
 
   return (
     <div>
       <h4>Bookstore CMS</h4>
       <div>
-        <ul>
-          {booksData.length < 1 ? <li>Loading....</li> : booksData
-            && booksData.map((book) => (
-              <Book
-                key={book.id}
-                title={book.title}
-                author={book.author}
-              />
-            ))}
-        </ul>
+        {booksData.length < 1 ? (
+          <p>No books found, please add some...</p>
+        ) : (
+          booksData
+          && booksData.map((book) => (
+            <Book
+              key={book.item_id}
+              id={book.item_id}
+              title={book.title}
+              category={book.category}
+            />
+          ))
+        )}
       </div>
       <div>
         <form>
-          <input type="text" placeholder="Title" onChange={(e) => setTitle(e.target.value)} />
-          <input type="text" placeholder="Author" onChange={(e) => setAuthor(e.target.value)} />
           <div>
-            <label htmlFor="category">Book Catergory: </label>
-            <select name="category" id="category" onChange={(e) => setCategory(e.target.value)}>
-              <option value="">Action</option>
-              <option value="">Science Fiction</option>
-              <option value="">Politics</option>
+            {errorMessage && <p className="errorMessage">{errorMessage}</p>}
+          </div>
+          <div>
+            <input
+              type="text"
+              value={title}
+              placeholder="Title"
+              onChange={(e) => setTitle(e.target.value)}
+            />
+          </div>
+          <div>
+            <select
+              name="category"
+              value={category}
+              id="category"
+              onChange={(e) => setCategory(e.target.value)}
+            >
+              <option value="">Select Category:</option>
+              <option value="action">Action</option>
+              <option value="science fiction">Science Fiction</option>
+              <option value="politics">Politics</option>
             </select>
           </div>
-          <button type="submit" onClick={submitBookToStore}>Add Book</button>
+          <button type="submit" onClick={submitBookToStore}>
+            Add Book
+          </button>
         </form>
       </div>
     </div>

@@ -1,9 +1,7 @@
-const bookStoreUrl = (() => {
-  const BASE_URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps';
-  const appID = '8BeC6hhtibzqOPHKrDmH';
-  const url = `${BASE_URL}/${appID}/books`;
+const BASE_URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps';
+const appID = 'JfGKQoNsCSP2RjNw0e6F';
 
-  return { url };
-})();
-
-export default bookStoreUrl;
+export {
+  BASE_URL,
+  appID,
+};

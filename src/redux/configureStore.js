@@ -7,7 +7,6 @@ import getBooksReducer from './books/get/getBooksReducer';
 const reducer = combineReducers({
   addBookReducer,
   booksData: getBooksReducer,
-  // additional reducers could be added here
 });
 
 const store = createStore(

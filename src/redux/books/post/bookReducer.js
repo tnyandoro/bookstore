@@ -1,10 +1,7 @@
 import axios from 'axios';
 import bookTypes from './bookTypes';
 import bookActions from './bookActions';
-// import bookStoreUrl from '../../utils';
-
-const BASE_URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps';
-const appID = '8BeC6hhtibzqOPHKrDmH';
+import { BASE_URL, appID } from '../../utils';
 
 const initialState = {
   isLoading: false,
@@ -13,13 +10,12 @@ const initialState = {
 };
 
 export const postBookRequest = ({
-  title, author, category, id,
+  title, category, id,
 }) => (dispatch) => {
   dispatch(bookActions.addBookRequest());
   axios.post(`${BASE_URL}/${appID}/books`, {
     item_id: id,
     title,
-    author,
     category,
   }).then((response) => {
     dispatch(bookActions.addBookSuccess(response.data));

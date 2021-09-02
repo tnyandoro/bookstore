@@ -5,9 +5,7 @@ import {
   getBooksSuccess,
   getBooksFailure,
 } from './getBooksActions';
-
-const BASE_URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps';
-const appID = '8BeC6hhtibzqOPHKrDmH';
+import { BASE_URL, appID } from '../../utils';
 
 const initialState = {
   isLoading: false,

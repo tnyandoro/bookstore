@@ -14,22 +14,22 @@ function Book({
   };
 
   return (
-    <li className="book-list">
-      <div className="book-info">
-        <p>{ message && message }</p>
-        <div>
-          <p>
+    <div>
+      <p>{ message && message }</p>
+      <div className="book-list">
+        <div className="book-info">
+          <div>
             <p className="book-category">{category}</p>
             <h4 className="book-title">{title}</h4>
             <p className="book-author">Book Author: Not Set</p>
             <button id={id} type="button" onClick={() => handleDeleteBook(id)}>
               Delete Book
             </button>
-          </p>
+          </div>
+          <BookProgress progress={progress} />
         </div>
       </div>
-      <BookProgress progress={progress} />
-    </li>
+    </div>
   );
 }
 

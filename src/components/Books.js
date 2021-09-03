@@ -43,7 +43,7 @@ function Books() {
 
   return (
     <div>
-      <ul className="list">
+      <div>
         {booksData.length < 1 ? (
           <p>No books found, please add some...</p>
         ) : (
@@ -58,22 +58,25 @@ function Books() {
             />
           ))
         )}
-      </ul>
+      </div>
       <div>
-        <form>
-          <div>
-            {errorMessage && <p className="errorMessage">{errorMessage}</p>}
-          </div>
-          <div>
+        <div>
+          <h3 className="add-book-title">ADD NEW BOOK</h3>
+          {errorMessage && <p className="errorMessage">{errorMessage}</p>}
+        </div>
+        <div className="flex-container ">
+          <div className="flex-item title-field">
             <input
+              className="input title-input"
               type="text"
               value={title}
               placeholder="Title"
               onChange={(e) => setTitle(e.target.value)}
             />
           </div>
-          <div>
+          <div className="flex-item category-field">
             <select
+              className="category"
               name="category"
               value={category}
               id="category"
@@ -85,10 +88,12 @@ function Books() {
               <option value="politics">Politics</option>
             </select>
           </div>
-          <button type="submit" onClick={submitBookToStore}>
-            Add Book
-          </button>
-        </form>
+          <div className="flex-item add-button">
+            <button className="primary-button-big submit" type="submit" onClick={submitBookToStore}>
+              Add Book
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

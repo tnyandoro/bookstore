@@ -1,5 +1,6 @@
 .book-progress {
   display: flex;
+  flex-direction: column;
   gap: 3.69rem;
 }
 

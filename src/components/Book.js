@@ -13,26 +13,32 @@ function Book({
   };
 
   return (
-    <div>
-      <p>{ message && message }</p>
-      <p>
-        Book Title:
-        {' '}
-        {title}
-        {' '}
-        <br />
-        Book Author: Not Set
-        <br />
-        Book Category:
-        {' '}
-        {category}
-        {' '}
-        <br />
-        <button id={id} type="button" onClick={() => handleDeleteBook(id)}>
-          Delete Book
-        </button>
-      </p>
-    </div>
+    <li className="book-list">
+      <div className="book-info">
+        <p>{ message && message }</p>
+        <div>
+          <p>
+            <p>
+              Book Category:
+              {' '}
+              {category}
+              {' '}
+            </p>
+            <br />
+            Book Title:
+            {' '}
+            {title}
+            {' '}
+            <br />
+            Book Author: Not Set
+            <br />
+            <button id={id} type="button" onClick={() => handleDeleteBook(id)}>
+              Delete Book
+            </button>
+          </p>
+        </div>
+      </div>
+    </li>
   );
 }
 

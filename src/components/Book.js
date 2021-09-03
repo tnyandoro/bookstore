@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import BookProgress from './BookProgress';
 import deleteBook from '../redux/books/delete/deleteBookReducer';
 
 function Book({
-  title, category, id,
+  title, category, id, progress,
 }) {
   const [message, setMessage] = useState(' ');
 
@@ -18,34 +19,25 @@ function Book({
         <p>{ message && message }</p>
         <div>
           <p>
-            <p>
-              Book Category:
-              {' '}
-              {category}
-              {' '}
-            </p>
-            <br />
-            Book Title:
-            {' '}
-            {title}
-            {' '}
-            <br />
-            Book Author: Not Set
-            <br />
+            <p className="book-category">{category}</p>
+            <h4 className="book-title">{title}</h4>
+            <p className="book-author">Book Author: Not Set</p>
             <button id={id} type="button" onClick={() => handleDeleteBook(id)}>
               Delete Book
             </button>
           </p>
         </div>
       </div>
+      <BookProgress progress={progress} />
     </li>
   );
 }
 
 Book.propTypes = {
+  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
+  progress: BookProgress.propTypes.progress.isRequired,
 };
 
 export default Book;

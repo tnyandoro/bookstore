@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { postBookRequest } from '../redux/books/post/bookReducer';
 import { fetchBooks } from '../redux/books/get/getBooksReducer';
 import Book from './Book';
+import './Books.css';
 
 function Books() {
   const dispatch = useDispatch();
@@ -42,7 +43,7 @@ function Books() {
 
   return (
     <div>
-      <div>
+      <ul className="list">
         {booksData.length < 1 ? (
           <p>No books found, please add some...</p>
         ) : (
@@ -57,7 +58,7 @@ function Books() {
             />
           ))
         )}
-      </div>
+      </ul>
       <div>
         <form>
           <div>

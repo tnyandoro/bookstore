@@ -42,7 +42,6 @@ function Books() {
 
   return (
     <div>
-      <h4>Bookstore CMS</h4>
       <div>
         {booksData.length < 1 ? (
           <p>No books found, please add some...</p>

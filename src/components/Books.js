@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { postBookRequest } from '../redux/books/post/bookReducer';
 import { fetchBooks } from '../redux/books/get/getBooksReducer';
 import Book from './Book';
+import './Books.css';
 
 function Books() {
   const dispatch = useDispatch();
@@ -41,8 +42,7 @@ function Books() {
   };
 
   return (
-    <div>
-      <h4>Bookstore CMS</h4>
+    <div className="container">
       <div>
         {booksData.length < 1 ? (
           <p>No books found, please add some...</p>
@@ -59,21 +59,24 @@ function Books() {
           ))
         )}
       </div>
-      <div>
-        <form>
-          <div>
-            {errorMessage && <p className="errorMessage">{errorMessage}</p>}
-          </div>
-          <div>
+      <div className="myform">
+        <div>
+          <h3 className="add-book-title">ADD NEW BOOK</h3>
+          {errorMessage && <p className="errorMessage">{errorMessage}</p>}
+        </div>
+        <div className="flex-container ">
+          <div className="flex-item title-field">
             <input
+              className="input title-input"
               type="text"
               value={title}
               placeholder="Title"
               onChange={(e) => setTitle(e.target.value)}
             />
           </div>
-          <div>
+          <div className="flex-item category-field">
             <select
+              className="category"
               name="category"
               value={category}
               id="category"
@@ -85,10 +88,12 @@ function Books() {
               <option value="politics">Politics</option>
             </select>
           </div>
-          <button type="submit" onClick={submitBookToStore}>
-            Add Book
-          </button>
-        </form>
+          <div className="flex-item add-button">
+            <button className="primary-button-big submit" type="submit" onClick={submitBookToStore}>
+              Add Book
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

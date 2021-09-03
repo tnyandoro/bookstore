@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import BookProgress from './BookProgress';
 import deleteBook from '../redux/books/delete/deleteBookReducer';
+import './Books.css';
 
 function Book({
   title, category, id, progress,
@@ -14,7 +15,7 @@ function Book({
   };
 
   return (
-    <div>
+    <>
       <p>{ message && message }</p>
       <div className="book-list">
         <div className="book-info">
@@ -22,14 +23,20 @@ function Book({
             <p className="book-category">{category}</p>
             <h4 className="book-title">{title}</h4>
             <p className="book-author">Book Author: Not Set</p>
-            <button id={id} type="button" onClick={() => handleDeleteBook(id)}>
-              Delete Book
-            </button>
+            <div className="book-atr">
+              <p>Comments |</p>
+              <button className="btn-primary" id={id} type="button" onClick={() => handleDeleteBook(id)}>
+                Remove
+              </button>
+              <p> | Edit</p>
+            </div>
           </div>
-          <BookProgress progress={progress} />
+          <div className="progress">
+            <BookProgress progress={progress} />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

@@ -42,7 +42,7 @@ function Books() {
   };
 
   return (
-    <div>
+    <div className="container">
       <div>
         {booksData.length < 1 ? (
           <p>No books found, please add some...</p>
@@ -59,7 +59,7 @@ function Books() {
           ))
         )}
       </div>
-      <div>
+      <div className="myform">
         <div>
           <h3 className="add-book-title">ADD NEW BOOK</h3>
           {errorMessage && <p className="errorMessage">{errorMessage}</p>}

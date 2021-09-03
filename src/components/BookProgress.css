@@ -1,7 +1,7 @@
+
 .book-progress {
   display: flex;
-  flex-direction: column;
-  gap: 3.69rem;
+  justify-content: space-between;
 }
 
 .curent-chapter-wrapper {
@@ -59,4 +59,8 @@
   font-family: "Roboto Slab", serif;
   background-color: #0290ff;
   color: rgba(255, 255, 255, 0.7);
+}
+
+.progress-item {
+  margin: 0 0.9rem 0 0;
 }

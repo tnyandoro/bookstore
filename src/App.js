@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <Provider store={store}>
-        <div className="container">
+        <div className="main-container">
           <Nav />
         </div>
       </Provider>

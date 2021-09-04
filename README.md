@@ -1,12 +1,17 @@
-# Math Magicians
+#Bookstore 
 
 ![Microverse](https://img.shields.io/badge/Microverse-blueviolet)
 
-> "Math magicians" is a website that calculates mathematics.
+> bookstore is a repository of books .The Bookstore is a website similar to the Awesome Books website built in the previous module. You will create an MVP version of it that allows you to:
 
-![ScreenShot]
+Display a list of books.
+Add a book.
+Remove a selected book.
+By building this application, you will learn how to use React and Redux.
 
-"Books" is a website for all  readers.
+![ScreenShot](https://user-images.githubusercontent.com/30318155/132075734-16e61219-127f-41df-8f2c-b9754873437f.png)
+
+BookStore is a website for all  readers.
 
 ## Built With
 
@@ -30,8 +35,8 @@ To get a local copy up and running follow these simple example steps.
 ### Setup
 
 ```bash
-git clone https://github.com/tnyandoro/
-cd ./math-magicians
+git clone https://github.com/tnyandoro/bookstore/
+cd ./bookstore
 ```
 
 ### Install
@@ -70,7 +75,7 @@ npm test
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/tnyandoro/books/issues/).
+Feel free to check the [issues page](https://github.com/tnyandoro/bookstore/issues/).
 
 ## Show your support
 

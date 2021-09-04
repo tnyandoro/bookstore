@@ -22,7 +22,7 @@ BookStore is a website for all  readers.
 
 ## Live Demo
 
-[Live Demo Link](https://tnyandoro.github/)
+[Live Demo Link](https://6132bfda9d12cde7174c9367--brave-wing-850670.netlify.app/)
 
 ## Getting Started
 

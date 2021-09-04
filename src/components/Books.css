@@ -1,3 +1,7 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap');
+
 .list {
   width: 100%;
   margin-left: auto;
@@ -57,7 +61,7 @@
 }
 
 .book-title {
-  font-family: "Roboto Slab", serif;
+  font-family: "Roboto", serif;
   font-size: 1.6rem;
   font-weight: bold;
   letter-spacing: -0.2px;
